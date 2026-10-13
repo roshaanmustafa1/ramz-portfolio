@@ -42,6 +42,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    icon: "/logo/Logo slogan.svg",
+    apple: "/logo/Logo slogan.png",
+  },
 }
 
 export default function RootLayout({

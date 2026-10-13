@@ -79,6 +79,14 @@ export const PERSONAL_INFO = {
   email: "ramz12mustafa@gmail.com",
   linkedin: "https://www.linkedin.com/in/ramz-mustafa-99745022a",
   image: "/ramz-snap.png",
+  logo: {
+    horizontal: "/logo/Logo File.svg",
+    horizontalPng: "/logo/Logo horizontal.png",
+    whiteHorizontal: "/logo/Logo White Horizontal.png",
+    emblem: "/logo/Logo slogan.svg",
+    emblemPng: "/logo/Logo slogan.png",
+    emblemWhite: "/logo/Logo slogan white.png",
+  },
   summary:
     "Results-driven Senior Purchase Executive with over five years of hands-on experience in strategic sourcing, vendor negotiations, and end-to-end procurement in manufacturing and enterprise environments. Proven track record managing multi-million-dirham spend, driving annual cost reductions of up to 14%, optimizing SAP MM ERP workflows, enforcing three-way matching, and mitigating global supply chain risks.",
 }

@@ -233,8 +233,16 @@ export function Hero() {
 
                   {/* Top Floating Mini Badge */}
                   <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10 pointer-events-none">
-                    <span className="text-[11px] font-bold tracking-widest text-white uppercase px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 shadow-sm">
-                      Purchase Executive
+                    <span className="text-[11px] font-bold tracking-widest text-white uppercase px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 shadow-sm flex items-center gap-1.5">
+                      <Image
+                        src={PERSONAL_INFO.logo.emblemWhite}
+                        alt="Emblem"
+                        width={14}
+                        height={14}
+                        unoptimized
+                        className="w-3.5 h-3.5 object-contain"
+                      />
+                      <span>Purchase Executive</span>
                     </span>
                     <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-emerald-300 text-[11px] font-medium shadow-sm">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />

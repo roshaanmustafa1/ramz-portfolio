@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUp, Mail, Phone } from "lucide-react"
 import { LinkedInIcon } from "@/components/LinkedInIcon"
 import { PERSONAL_INFO } from "@/lib/portfolio-data"
@@ -18,18 +19,20 @@ export function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-[#8750f7]/20 blur-3xl pointer-events-none" />
 
       <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 2xl:px-24 relative z-10 text-center">
-        {/* Logo / Monogram */}
+        {/* Official Brand Logo */}
         <div className="mb-6 inline-block">
           <Link
             href="#hero"
-            className="group flex flex-col items-center justify-center gap-2"
+            className="group inline-flex items-center justify-center text-decoration-none"
           >
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#8750f7] to-[#9b8dff] flex items-center justify-center text-white font-black text-xl tracking-wider shadow-lg group-hover:scale-105 transition-transform duration-300">
-              RM
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white group-hover:text-[#9b8dff] transition-colors">
-              {PERSONAL_INFO.name}
-            </span>
+            <Image
+              src={PERSONAL_INFO.logo.whiteHorizontal}
+              alt={`${PERSONAL_INFO.name} Logo`}
+              width={185}
+              height={56}
+              unoptimized
+              className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
         </div>
 

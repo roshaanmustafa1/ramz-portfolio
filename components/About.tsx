@@ -57,8 +57,16 @@ export function About() {
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#8750f7]/10 rounded-full blur-2xl" />
 
               <div className="flex items-center justify-between gap-3 mb-6">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#8750f7] px-3.5 py-1 rounded-full bg-[#f6f3fc] border border-[#e8e2f4] inline-block">
-                  Executive Profile
+                <span className="text-xs font-bold uppercase tracking-widest text-[#8750f7] px-3.5 py-1 rounded-full bg-[#f6f3fc] border border-[#e8e2f4] inline-flex items-center gap-1.5">
+                  <Image
+                    src={PERSONAL_INFO.logo.emblem}
+                    alt="Emblem"
+                    width={14}
+                    height={14}
+                    unoptimized
+                    className="w-3.5 h-3.5 object-contain"
+                  />
+                  <span>Executive Profile</span>
                 </span>
                 <span className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

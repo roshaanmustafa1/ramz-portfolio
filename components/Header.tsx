@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 import { motion, AnimatePresence } from "motion/react"
 import { PERSONAL_INFO } from "@/lib/portfolio-data"
@@ -56,23 +57,21 @@ export function Header() {
       >
         <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 2xl:px-24">
           <div className="flex items-center justify-between">
-            {/* Left: Brand Wordmark */}
+            {/* Left: Official Brand Logo */}
             <div className="flex items-center">
               <Link
                 href="#hero"
-                className="group flex items-center gap-2.5 text-decoration-none"
+                className="group flex items-center text-decoration-none"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#8750f7] to-[#2a1454] flex items-center justify-center text-white font-bold text-lg tracking-wider shadow-[0_4px_12px_rgba(135,80,247,0.3)] group-hover:scale-105 transition-transform duration-300">
-                  RM
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-lg tracking-tight text-[#2a1454] group-hover:text-[#8750f7] transition-colors leading-tight">
-                    {PERSONAL_INFO.name}
-                  </span>
-                  <span className="text-[11px] font-medium text-[#747779] tracking-wider uppercase">
-                    Procurement & SCM
-                  </span>
-                </div>
+                <Image
+                  src={PERSONAL_INFO.logo.horizontal}
+                  alt={`${PERSONAL_INFO.name} Logo`}
+                  width={155}
+                  height={48}
+                  priority
+                  unoptimized
+                  className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </Link>
             </div>
 
@@ -148,14 +147,21 @@ export function Header() {
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-[#e8e2f4]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#8750f7] to-[#2a1454] flex items-center justify-center text-white font-bold text-sm">
-                      RM
-                    </div>
-                    <span className="font-bold text-[#2a1454]">
-                      {PERSONAL_INFO.name}
-                    </span>
-                  </div>
+                  <Link
+                    href="#hero"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center"
+                  >
+                    <Image
+                      src={PERSONAL_INFO.logo.horizontal}
+                      alt={PERSONAL_INFO.name}
+                      width={130}
+                      height={40}
+                      priority
+                      unoptimized
+                      className="h-9 w-auto object-contain"
+                    />
+                  </Link>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-9 h-9 rounded-lg bg-[#f6f3fc] flex items-center justify-center text-[#747779]"
