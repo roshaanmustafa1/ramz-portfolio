@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Mail, Menu, X, ArrowUpRight } from "lucide-react"
+import { Menu, X, ArrowUpRight } from "lucide-react"
 import { motion, AnimatePresence } from "motion/react"
 import { PERSONAL_INFO } from "@/lib/portfolio-data"
 
@@ -56,8 +56,8 @@ export function Header() {
       >
         <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 2xl:px-24">
           <div className="flex items-center justify-between">
-            {/* Left: Brand Wordmark & Email */}
-            <div className="flex items-center gap-6 lg:gap-8">
+            {/* Left: Brand Wordmark */}
+            <div className="flex items-center">
               <Link
                 href="#hero"
                 className="group flex items-center gap-2.5 text-decoration-none"
@@ -74,16 +74,6 @@ export function Header() {
                   </span>
                 </div>
               </Link>
-
-              <a
-                href={`mailto:${PERSONAL_INFO.email}`}
-                className="hidden xl:flex items-center gap-2 text-sm font-medium text-[#2a1454] hover:text-[#8750f7] transition-colors pl-6 border-l border-[#e8e2f4]"
-              >
-                <div className="w-8 h-8 rounded-full bg-[#f6f3fc] flex items-center justify-center text-[#8750f7] group-hover:bg-[#8750f7] group-hover:text-white transition-colors">
-                  <Mail className="w-3.5 h-3.5" />
-                </div>
-                <span>{PERSONAL_INFO.email}</span>
-              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -189,14 +179,7 @@ export function Header() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-[#e8e2f4] space-y-4">
-                <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  className="flex items-center gap-3 text-sm text-[#747779] hover:text-[#8750f7]"
-                >
-                  <Mail className="w-4 h-4 text-[#8750f7]" />
-                  <span>{PERSONAL_INFO.email}</span>
-                </a>
+              <div className="pt-6 border-t border-[#e8e2f4]">
                 <Link
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
