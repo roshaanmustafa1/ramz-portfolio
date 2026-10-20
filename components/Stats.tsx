@@ -16,6 +16,7 @@ export function Stats() {
 
       items.forEach((item) => {
         const targetValue = parseFloat(item.getAttribute("data-target") || "0")
+        const decimals = parseInt(item.getAttribute("data-decimals") || "0", 10)
         const obj = { val: 0 }
 
         gsap.to(obj, {
@@ -29,7 +30,8 @@ export function Stats() {
           },
           onUpdate: () => {
             if (item) {
-              item.innerText = Math.round(obj.val).toString()
+              item.innerText =
+                decimals > 0 ? obj.val.toFixed(decimals) : Math.round(obj.val).toString()
             }
           },
         })
@@ -70,6 +72,7 @@ export function Stats() {
                 <span
                   className="stat-number-counter"
                   data-target={stat.number}
+                  data-decimals={stat.decimals || 0}
                 >
                   0
                 </span>

@@ -12,33 +12,37 @@ const sora = Sora({
 })
 
 export const metadata: Metadata = {
-  title: "Ramz Mustafa | Senior Purchase Executive & Supply Chain Professional",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://ramzmustafa.com"
+  ),
+  title: "Ramz Mustafa | Healthcare Accountant & US RCM Specialist",
   description:
-    "Personal portfolio of Ramz Mustafa, Senior Purchase Executive with 5+ years of strategic sourcing, contract negotiations, SAP MM, and multi-million-dollar procurement expertise in Sharjah, UAE.",
+    "Explore the professional portfolio of Ramz Mustafa, a Healthcare Accountant specializing in US Medical Billing, Revenue Cycle Management, ERA/EOB reconciliation, medical AR, and healthcare financial reporting.",
   keywords: [
     "Ramz Mustafa",
-    "Purchase Executive",
-    "Supply Chain Professional",
-    "Procurement Executive",
-    "Strategic Sourcing",
-    "SAP MM",
-    "Contract Negotiation",
-    "Sharjah",
-    "UAE",
+    "Healthcare Accountant",
+    "Revenue Cycle Management",
+    "RCM Specialist",
+    "US Medical Billing",
+    "Medical Billing Accounting",
+    "ERA EOB Reconciliation",
+    "Medical Accounts Receivable",
+    "Healthcare Financial Reporting",
+    "HIPAA Compliance",
   ],
   authors: [{ name: "Ramz Mustafa" }],
   openGraph: {
-    title: "Ramz Mustafa | Strategic Procurement & Supply Chain Executive",
+    title: "Ramz Mustafa | Healthcare Accountant & US RCM Specialist",
     description:
-      "Results-driven Senior Purchase Executive managing >AED 2M spend with proven 12% YoY cost reduction and 98.5% supplier quality assurance.",
+      "Senior Healthcare Accountant with 5+ years of experience managing $2M+ USD in US medical billing portfolios, ERA/EOB reconciliations, and HIPAA-compliant financial controls.",
     type: "website",
-    locale: "en_AE",
+    locale: "en_US",
     images: [
       {
         url: "/ramz-snap.png",
         width: 1200,
         height: 1500,
-        alt: "Ramz Mustafa - Senior Purchase Executive",
+        alt: "Ramz Mustafa - Healthcare Accountant & US RCM Specialist",
       },
     ],
   },

@@ -4,6 +4,7 @@ import { Stats } from "@/components/Stats"
 import { Expertise } from "@/components/Expertise"
 import { Achievements } from "@/components/Achievements"
 import { ExperienceTimeline } from "@/components/ExperienceTimeline"
+import { Education } from "@/components/Education"
 import { SkillsGrid } from "@/components/SkillsGrid"
 import { About } from "@/components/About"
 import { Contact } from "@/components/Contact"
@@ -29,10 +30,13 @@ export default function Home() {
         {/* 5. Achievements / Case-Study Portfolio Section */}
         <Achievements />
 
-        {/* 6. Experience & Education Two-Column Timeline Section */}
+        {/* 6. Experience Section */}
         <ExperienceTimeline />
 
-        {/* 7. Skills Grid Section */}
+        {/* 7. Dedicated Education & Credentials Section */}
+        <Education />
+
+        {/* 8. Skills Grid Section */}
         <SkillsGrid />
 
         {/* 8. About Section */}

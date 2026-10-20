@@ -149,10 +149,10 @@ export function Contact() {
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2a1454] tracking-tight">
                   Let&apos;s Connect &amp;{" "}
-                  <span className="tj-gradient-heading">Optimize Spend!</span>
+                  <span className="tj-gradient-heading">Optimize Cash Flow!</span>
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-[#5c6266] leading-relaxed">
-                  Have a procurement challenge, strategic sourcing requirement, or executive
+                  Have a healthcare accounting challenge, medical AR backlog, or revenue cycle
                   opportunity? Send a note directly to Ramz Mustafa.
                 </p>
               </div>
@@ -299,25 +299,28 @@ export function Contact() {
                     }`}
                   >
                     <option value="" disabled>
-                      Select Procurement Specialty...
+                      Select Healthcare Accounting Specialty...
                     </option>
-                    <option value="Strategic Sourcing & RFQ/RFP">
-                      Strategic Sourcing &amp; RFQ/RFP Analysis
+                    <option value="Healthcare Financial Accounting & Revenue Recognition">
+                      Healthcare Financial Accounting &amp; Revenue Recognition
                     </option>
-                    <option value="Contract Negotiations & SLAs">
-                      Contract Negotiations &amp; Master SLAs
+                    <option value="ERA & EOB Payment Posting & Reconciliation">
+                      ERA &amp; EOB Payment Posting &amp; Reconciliation
                     </option>
-                    <option value="Vendor Portfolio Management">
-                      Vendor Portfolio &amp; Supplier Auditing
+                    <option value="Medical Accounts Receivable (AR) & Aging Analysis">
+                      Medical Accounts Receivable (AR) &amp; Aging Analysis
                     </option>
-                    <option value="Procurement Cycle Acceleration">
-                      Procurement Cycle &amp; PO Acceleration (48h)
+                    <option value="Denial Management & Claim Appeals Accounting">
+                      Denial Management &amp; Claim Appeals Accounting
                     </option>
-                    <option value="SAP MM ERP Optimization">
-                      SAP MM ERP &amp; Three-Way Matching
+                    <option value="Contractual Allowance & Fee Schedule Auditing">
+                      Contractual Allowance &amp; Fee Schedule Auditing
                     </option>
-                    <option value="Executive Career Opportunity">
-                      Executive Career Opportunity (UAE / Global)
+                    <option value="Financial Reporting & US Healthcare Compliance">
+                      Financial Reporting &amp; US Healthcare Compliance
+                    </option>
+                    <option value="Senior Healthcare Accountant Career Opportunity">
+                      Senior Healthcare Accountant Career Opportunity
                     </option>
                   </select>
                   {errors.service && (
@@ -341,7 +344,7 @@ export function Contact() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Describe your organization's procurement objectives, volume spend, or specific inquiry..."
+                    placeholder="Describe your practice, billing volume, revenue cycle objectives, or specific inquiry..."
                     required
                     className={`w-full px-4 py-3 rounded-2xl bg-[#f6f3fc] border text-sm text-[#140c1c] placeholder:text-[#747779] focus:outline-none focus:ring-2 focus:ring-[#8750f7]/40 focus:border-[#8750f7] transition-all resize-y ${
                       errors.message ? "border-rose-400" : "border-[#e8e2f4]"

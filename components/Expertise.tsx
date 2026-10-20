@@ -1,33 +1,56 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { ArrowUpRight } from "lucide-react"
+import {
+  Calculator,
+  ReceiptText,
+  TrendingUp,
+  FileCheck2,
+  ClipboardCheck,
+  ShieldCheck,
+  ArrowUpRight,
+  LucideIcon,
+  CheckCircle2,
+} from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SERVICES_DATA, ServiceItem } from "@/lib/portfolio-data"
 import { ServiceModal } from "./ServiceModal"
 
+const ICON_MAP: Record<string, LucideIcon> = {
+  Calculator,
+  ReceiptText,
+  TrendingUp,
+  FileCheck2,
+  ClipboardCheck,
+  ShieldCheck,
+}
+
 export function Expertise() {
   const [activeService, setActiveService] = useState<ServiceItem | null>(null)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0) // Gerold defaults to first item active
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      gsap.from(".service-row-anim", {
-        opacity: 0,
-        y: 35,
-        stagger: 0.12,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          once: true,
-        },
-      })
+      gsap.fromTo(
+        ".service-card-anim",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            once: true,
+          },
+          clearProps: "opacity,transform",
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()
@@ -40,82 +63,79 @@ export function Expertise() {
         id="expertise"
         className="py-20 lg:py-28 bg-[#f6f3fc] relative overflow-hidden"
       >
-        {/* Soft radial glow */}
-        <div className="absolute top-0 right-10 w-96 h-96 bg-[#8750f7]/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Soft radial ambient glow */}
+        <div className="absolute top-0 right-10 w-96 h-96 bg-[#8750f7]/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#2a1454]/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 2xl:px-24">
+        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 2xl:px-24 relative z-10">
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#8750f7] px-4 py-1.5 rounded-full bg-white border border-[#e8e2f4] inline-block mb-3">
-              Capabilities & Offerings
+          <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-18">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#8750f7] px-4 py-1.5 rounded-full bg-white border border-[#e8e2f4] inline-block mb-3 shadow-xs">
+              Specialized Healthcare Accounting &amp; Revenue Cycle Solutions
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2a1454] tracking-tight">
-              Quality Procurement{" "}
-              <span className="tj-gradient-heading">Services</span>
+              My <span className="tj-gradient-heading">Expertise</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#5c6266] leading-relaxed">
-              Transforming enterprise spend management through strategic supplier
-              negotiation, rigorous SLA compliance, and lean Procure-to-Pay optimization.
+              Comprehensive revenue cycle management, ledger posting, and GAAP-compliant
+              accounting solutions engineered to eliminate revenue leakage and accelerate
+              cash flow for US healthcare practices.
             </p>
           </div>
 
-          {/* Services Rows List (recreating Gerold .services-widget) */}
-          <div className="bg-white rounded-3xl border border-[#e8e2f4] overflow-hidden shadow-[0_15px_40px_-15px_rgba(42,20,84,0.06)] divide-y divide-[#e8e2f4]">
-            {SERVICES_DATA.map((service, index) => {
-              const isHovered = hoveredIndex === index
+          {/* 6-Card Services Grid (Eliminates empty horizontal gaps, provides equal height cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {SERVICES_DATA.map((service: ServiceItem) => {
+              const Icon = ICON_MAP[service.iconName] || Calculator
 
               return (
                 <div
                   key={service.id}
-                  onMouseEnter={() => setHoveredIndex(index)}
                   onClick={() => setActiveService(service)}
-                  className={`service-row-anim group relative p-6 sm:p-8 lg:p-10 cursor-pointer transition-all duration-500 ease-out ${
-                    isHovered
-                      ? "bg-gradient-to-r from-[#2a1454] to-[#8750f7] text-white"
-                      : "bg-white hover:bg-[#faf8fd] text-[#2a1454]"
-                  }`}
+                  className="service-card-anim group relative p-7 sm:p-8 rounded-3xl bg-white border border-[#e8e2f4] hover:border-transparent hover:bg-gradient-to-br hover:from-[#2a1454] hover:to-[#8750f7] shadow-[0_10px_30px_rgba(42,20,84,0.04)] hover:shadow-[0_20px_45px_rgba(135,80,247,0.2)] transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-12">
-                    {/* Left: Number + Title */}
-                    <div className="lg:w-5/12 flex items-center gap-5 sm:gap-8">
-                      <span
-                        className={`text-2xl sm:text-3xl font-extrabold tracking-tight transition-colors duration-300 ${
-                          isHovered ? "text-white" : "text-[#8750f7]"
-                        }`}
-                      >
+                  <div>
+                    {/* Top row: Service Number + Icon Badge */}
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#8750f7] group-hover:text-white transition-colors duration-300">
                         {service.number}
                       </span>
-                      <h3
-                        className={`text-xl sm:text-2xl lg:text-[26px] font-bold tracking-tight transition-colors duration-300 ${
-                          isHovered ? "text-white" : "text-[#2a1454]"
-                        }`}
-                      >
-                        {service.title}
-                      </h3>
-                    </div>
-
-                    {/* Middle: Short Description */}
-                    <div className="lg:w-6/12">
-                      <p
-                        className={`text-sm sm:text-base leading-relaxed transition-colors duration-300 ${
-                          isHovered ? "text-slate-100" : "text-[#5c6266]"
-                        }`}
-                      >
-                        {service.shortDesc}
-                      </p>
-                    </div>
-
-                    {/* Right: Rotating Arrow Icon */}
-                    <div className="lg:w-1/12 flex items-center justify-end">
-                      <div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          isHovered
-                            ? "bg-white text-[#2a1454] rotate-0 scale-110 shadow-lg"
-                            : "bg-[#f6f3fc] text-[#8750f7] rotate-45 group-hover:rotate-0"
-                        }`}
-                      >
-                        <ArrowUpRight className="w-5 h-5 transition-transform" />
+                      <div className="w-14 h-14 rounded-2xl bg-[#f6f3fc] group-hover:bg-white/15 border border-[#e8e2f4] group-hover:border-white/20 flex items-center justify-center text-[#8750f7] group-hover:text-white transition-all duration-300 shadow-xs">
+                        <Icon className="w-7 h-7 transition-transform group-hover:scale-110" />
                       </div>
+                    </div>
+
+                    {/* Service Title */}
+                    <h3 className="text-xl sm:text-[22px] font-bold tracking-tight text-[#2a1454] group-hover:text-white transition-colors duration-300 leading-snug mb-3">
+                      {service.title}
+                    </h3>
+
+                    {/* Short Description */}
+                    <p className="text-sm text-[#5c6266] group-hover:text-slate-100 transition-colors duration-300 leading-relaxed mb-6">
+                      {service.shortDesc}
+                    </p>
+
+                    {/* Key Scope Preview Badges */}
+                    <div className="space-y-2 mb-6">
+                      {service.deliverables.slice(0, 2).map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-[#2a1454] group-hover:text-slate-100 font-medium transition-colors"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#8750f7] group-hover:text-emerald-300 shrink-0 mt-0.5" />
+                          <span className="line-clamp-1">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Card Bottom: Action CTA & Animated Arrow */}
+                  <div className="pt-4 border-t border-[#e8e2f4] group-hover:border-white/15 flex items-center justify-between transition-colors">
+                    <span className="text-xs font-bold text-[#8750f7] group-hover:text-white transition-colors">
+                      Explore Full Scope
+                    </span>
+                    <div className="w-10 h-10 rounded-full bg-[#f6f3fc] group-hover:bg-white text-[#8750f7] group-hover:text-[#2a1454] flex items-center justify-center transition-all duration-300 shadow-xs group-hover:rotate-45">
+                      <ArrowUpRight className="w-4 h-4 transition-transform" />
                     </div>
                   </div>
                 </div>

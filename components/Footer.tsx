@@ -37,8 +37,8 @@ export function Footer() {
         </div>
 
         {/* Headline tag */}
-        <p className="text-xs sm:text-sm font-medium text-slate-300 max-w-md mx-auto mb-8">
-          Senior Purchase Executive • Supply Chain Governance &amp; Strategic Sourcing • Sharjah, UAE
+        <p className="text-xs sm:text-sm font-medium text-slate-300 max-w-lg mx-auto mb-8">
+          Senior Healthcare Accountant • US Revenue Cycle Management &amp; Financial Controls • Sharjah, UAE
         </p>
 
         {/* Navigation Links */}
@@ -74,6 +74,14 @@ export function Footer() {
                 className="hover:text-[#9b8dff] transition-colors"
               >
                 Experience
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#education"
+                className="hover:text-[#9b8dff] transition-colors"
+              >
+                Education
               </Link>
             </li>
             <li>

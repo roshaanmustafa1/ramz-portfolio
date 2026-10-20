@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { ShieldCheck, Award, TrendingDown, Clock, ArrowRight } from "lucide-react"
+import { ShieldCheck, Award, TrendingUp, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import gsap from "gsap"
@@ -66,7 +66,7 @@ export function About() {
                     unoptimized
                     className="w-3.5 h-3.5 object-contain"
                   />
-                  <span>Executive Profile</span>
+                  <span>Healthcare Finance Profile</span>
                 </span>
                 <span className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -91,7 +91,7 @@ export function About() {
                     {PERSONAL_INFO.name}
                   </h4>
                   <p className="text-xs text-[#747779] font-medium mt-0.5">
-                    {PERSONAL_INFO.headline}
+                    {PERSONAL_INFO.shortTitle}
                   </p>
                   <p className="text-[11px] font-semibold text-[#8750f7] mt-1">
                     Sharjah, UAE • 5+ Years Exp
@@ -100,23 +100,23 @@ export function About() {
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2a1454] tracking-tight mb-4">
-                Driving Margin Protection &amp; Operational Continuity
+                Driving Financial Accuracy &amp; Revenue Integrity
               </h3>
 
               <p className="text-sm sm:text-base text-[#5c6266] leading-relaxed mb-6">
-                Based in Sharjah, UAE, Ramz Mustafa brings over five years of proven
-                leadership in high-stakes vendor negotiations, raw material strategic sourcing,
-                and SAP MM transactional governance for enterprise manufacturing groups.
+                Based in Sharjah, UAE, Ramz Mustafa brings over five years of specialized
+                experience in US medical billing accounting, Revenue Cycle Management (RCM),
+                ERA/EOB reconciliations, and healthcare financial controls.
               </p>
 
               {/* 4 Feature Badges */}
               <div className="space-y-3.5 pt-4 border-t border-[#e8e2f4]">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[#f6f3fc] flex items-center justify-center text-[#8750f7] shrink-0">
-                    <TrendingDown className="w-4 h-4" />
+                    <TrendingUp className="w-4 h-4" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold text-[#2a1454]">
-                    Up to 14% annual cost reduction unlocked
+                    +12% YoY Net Collection Growth unlocked
                   </span>
                 </div>
 
@@ -125,7 +125,7 @@ export function About() {
                     <Clock className="w-4 h-4" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold text-[#2a1454]">
-                    PO turnaround reduced from 5 days to 48 hours
+                    ERA/EOB payment turnaround compressed to under 48 hours
                   </span>
                 </div>
 
@@ -134,7 +134,7 @@ export function About() {
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold text-[#2a1454]">
-                    98.5% sustained supplier quality assurance
+                    98.5% sustained financial reconciliation accuracy
                   </span>
                 </div>
 
@@ -150,31 +150,38 @@ export function About() {
             </div>
           </div>
 
-          {/* Right Column: Detailed Narrative & Sourcing Philosophy */}
+          {/* Right Column: Detailed Narrative & RCM Philosophy */}
           <div className="about-anim-right lg:col-span-7 space-y-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#8750f7] px-4 py-1.5 rounded-full bg-white border border-[#e8e2f4] inline-block">
-              About Ramz Mustafa
+              About Me
             </span>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2a1454] tracking-tight leading-tight">
-              A Modern Approach to{" "}
-              <span className="tj-gradient-heading">Procurement Excellence</span>
+              Senior Healthcare Accountant |{" "}
+              <span className="tj-gradient-heading">US Revenue Cycle &amp; Financial Controls</span>
             </h2>
 
             <div className="space-y-4 text-base sm:text-lg text-[#5c6266] leading-relaxed">
               <p>
-                Procurement in industrial and enterprise operations is not merely a transactional
-                requisition task; it is a primary driver of bottom-line profitability and risk resilience.
-                Over the past 5+ years, I have spearheaded procurement operations across diverse categories,
-                directing more than AED 2 Million in annual spend and negotiating commercial agreements with
-                over 45 primary vendors.
+                In US healthcare practices, accounting is intrinsically linked to Revenue Cycle
+                Management. True financial health requires going beyond simple payment posting—it
+                demands accurate gross-to-net revenue calculations, strict contractual allowance
+                monitoring, and disciplined insurance AR auditing.
               </p>
               <p>
-                My methodology bridges technical supplier vetting with rigorous financial analysis.
-                By embedding three-way matching and tolerance governance into SAP MM ERP, I eliminate
-                reconciliation frictions between supply chain and corporate accounting. Concurrently,
-                by engineering alternative vendor pipelines, I ensure manufacturing plants remain fully
-                shielded against global logistics interruptions.
+                Over the past 5+ years, I have managed accounting and revenue cycle workflows for US
+                healthcare portfolios exceeding $2 million USD in annual billing volume.
+              </p>
+              <p>
+                My approach combines rigorous GAAP accounting standards with deep expertise in US
+                medical billing systems. By implementing systematic three-way reconciliations
+                between clearinghouses, bank deposits, and general ledgers, I work to eliminate
+                financial discrepancies and revenue leakage.
+              </p>
+              <p>
+                By optimizing ERA payment posting and aged AR recovery, I help medical practices
+                maintain predictable cash flow, transparent reporting, and HIPAA-compliant financial
+                workflows.
               </p>
             </div>
 
@@ -185,10 +192,10 @@ export function About() {
                   Pillar 01
                 </div>
                 <div className="text-base font-bold text-[#2a1454] mb-1">
-                  Cost Engineering
+                  Revenue Integrity
                 </div>
                 <p className="text-xs text-[#747779]">
-                  Volume pooling, competitive RFQ benchmarking, and TCO modeling to secure maximum margin protection.
+                  Accrual-based revenue recognition, fee schedule audits, and contractual write-off governance protecting practice profit margins.
                 </p>
               </div>
 
@@ -197,10 +204,10 @@ export function About() {
                   Pillar 02
                 </div>
                 <div className="text-base font-bold text-[#2a1454] mb-1">
-                  Supply Continuity
+                  Three-Way Reconciliation
                 </div>
                 <p className="text-xs text-[#747779]">
-                  Dual-sourcing frameworks and localized vendor qualification to insulate production lines from delays.
+                  Systematic ledger matching between clearinghouse deposits, bank statements, and EHR patient accounts to eliminate revenue leakage.
                 </p>
               </div>
             </div>
@@ -208,7 +215,7 @@ export function About() {
             {/* CTA row */}
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link href="#contact" className="tj-btn-primary">
-                <span>Initiate Sourcing Consultation</span>
+                <span>Consult on Healthcare Accounting</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a

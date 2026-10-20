@@ -10,10 +10,11 @@ import { AchievementModal } from "./AchievementModal"
 
 const CATEGORIES = [
   { key: "all", label: "All Achievements" },
-  { key: "cost", label: "Cost Optimization" },
+  { key: "revenue", label: "Revenue Optimization" },
   { key: "velocity", label: "Process Velocity" },
   { key: "quality", label: "Quality & Compliance" },
-  { key: "risk", label: "Risk Mitigation" },
+  { key: "recovery", label: "AR Recovery" },
+  { key: "efficiency", label: "Workflow Optimization" },
 ]
 
 export function Achievements() {
@@ -57,15 +58,15 @@ export function Achievements() {
           {/* Section Header */}
           <div className="achieve-header-anim text-center max-w-3xl mx-auto mb-12 lg:mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-[#8750f7] px-4 py-1.5 rounded-full bg-[#f6f3fc] border border-[#e8e2f4] inline-block mb-3">
-              Case Study Highlights
+              Measurable Impact in Healthcare Accounting &amp; Revenue Cycle Management
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2a1454] tracking-tight">
-              Verified Key{" "}
+              Professional{" "}
               <span className="tj-gradient-heading">Achievements</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#5c6266] leading-relaxed">
-              Tangible cost savings, accelerated cycle times, and operational risk
-              reductions delivered across enterprise manufacturing and commercial operations.
+              Documented collection growth, payment posting acceleration, and financial
+              reconciliation accuracy delivered across US healthcare revenue cycles.
             </p>
 
             {/* Filter Buttons Bar (Gerold style rounded button group) */}
@@ -119,10 +120,16 @@ export function Achievements() {
                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#f6f3fc] text-[#8750f7] border border-[#e8e2f4]">
                         {item.categoryLabel}
                       </span>
-                      <div className="px-3 py-1 rounded-xl bg-gradient-to-r from-[#8750f7] to-[#2a1454] text-white font-extrabold text-sm shadow-sm flex items-center gap-1">
-                        <TrendingUp className="w-3.5 h-3.5" />
-                        <span>{item.metric}</span>
-                      </div>
+                      {item.metric ? (
+                        <div className="px-3 py-1 rounded-xl bg-gradient-to-r from-[#8750f7] to-[#2a1454] text-white font-extrabold text-sm shadow-sm flex items-center gap-1">
+                          <TrendingUp className="w-3.5 h-3.5" />
+                          <span>{item.metric}</span>
+                        </div>
+                      ) : (
+                        <div className="px-3 py-1 rounded-xl bg-gradient-to-r from-[#8750f7] to-[#2a1454] text-white font-bold text-xs shadow-sm flex items-center gap-1">
+                          <span>Optimized</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Company and location */}

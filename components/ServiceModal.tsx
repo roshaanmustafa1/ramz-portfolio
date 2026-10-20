@@ -49,7 +49,7 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
             </span>
             <div className="h-6 w-[1px] bg-[#e8e2f4]" />
             <span className="text-xs font-bold uppercase tracking-wider text-[#747779]">
-              Procurement Service
+              Healthcare Accounting &amp; RCM Service
             </span>
           </div>
 

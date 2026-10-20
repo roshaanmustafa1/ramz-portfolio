@@ -21,10 +21,10 @@ export interface ServiceItem {
 export interface AchievementItem {
   id: string
   title: string
-  category: "all" | "cost" | "velocity" | "quality" | "risk"
+  category: "all" | "revenue" | "velocity" | "quality" | "recovery" | "efficiency"
   categoryLabel: string
-  metric: string
-  metricLabel: string
+  metric?: string
+  metricLabel?: string
   company: string
   location: string
   period: string
@@ -59,8 +59,14 @@ export interface EducationItem {
 
 export interface SkillItem {
   name: string
-  category: "ERP & Systems" | "Strategic Procurement" | "Supply Chain & Ops" | "Governance & Finance"
-  level: "Advanced" | "Expert" | "Core Competency"
+  category:
+    | "Healthcare Finance"
+    | "US Medical Billing"
+    | "Accounting & EHR Systems"
+    | "Accounting & Governance"
+    | "Compliance & Regulatory"
+    | "Financial Analytics"
+  level: "Expert" | "Advanced"
   icon: string
   description: string
 }
@@ -70,8 +76,9 @@ export const PERSONAL_INFO = {
   firstName: "Ramz",
   lastName: "Mustafa",
   monogram: "RM",
-  headline: "Purchase Executive | Supply Chain & Procurement",
-  title: "Strategic Procurement & Supply Chain Professional",
+  headline: "Healthcare Accountant & US Revenue Cycle Management (RCM) Specialist",
+  title: "Healthcare Accountant & US Revenue Cycle Management (RCM) Specialist",
+  shortTitle: "Senior Healthcare & Revenue Cycle Accountant",
   subTitle: "I am Ramz Mustafa",
   location: "Sharjah, UAE",
   phone: "+971 54 574 0545",
@@ -87,8 +94,21 @@ export const PERSONAL_INFO = {
     emblemPng: "/logo/Logo slogan.png",
     emblemWhite: "/logo/Logo slogan white.png",
   },
+  experienceYears: "5+ Years",
+  annualBillingVolume: "$2M+ USD",
+  systems: ["Kareo", "AdvancedMD", "Athenahealth", "QuickBooks"],
+  focusAreas: [
+    "US Healthcare Accounting",
+    "Revenue Cycle Management",
+    "US Medical Billing",
+    "ERA/EOB Reconciliation",
+    "Medical Accounts Receivable",
+    "Financial Reporting",
+    "Revenue Recognition",
+    "US Healthcare Financial Compliance",
+  ],
   summary:
-    "Results-driven Senior Purchase Executive with over five years of hands-on experience in strategic sourcing, vendor negotiations, and end-to-end procurement in manufacturing and enterprise environments. Proven track record managing multi-million-dirham spend, driving annual cost reductions of up to 14%, optimizing SAP MM ERP workflows, enforcing three-way matching, and mitigating global supply chain risks.",
+    "Senior Healthcare Accountant with over five years of specialized experience in US medical billing accounting, Revenue Cycle Management (RCM), electronic remittance advice (ERA/EOB) reconciliation, contractual allowance posting, and HIPAA-compliant financial reporting. Experienced in managing multi-million-dollar billing portfolios for US healthcare providers, optimizing medical AR aging, and executing accrual accounting for commercial payors including Aetna, BCBS, Cigna, and UnitedHealthcare, as well as government payors Medicare and Medicaid.",
 }
 
 export const STATS_DATA: StatItem[] = [
@@ -97,29 +117,30 @@ export const STATS_DATA: StatItem[] = [
     number: 5,
     suffix: "+",
     label: "Years of",
-    sublabel: "Experience",
+    sublabel: "Specialized Experience",
   },
   {
-    id: "spend",
+    id: "billing-portfolio",
     number: 2,
-    prefix: "AED ",
+    prefix: "$",
     suffix: "M+",
-    label: "Annual Spend",
-    sublabel: "Managed",
+    label: "Annual Billing",
+    sublabel: "Portfolio Managed",
   },
   {
-    id: "vendors",
-    number: 45,
-    suffix: "+",
-    label: "Primary Vendors",
-    sublabel: "Under SLA",
-  },
-  {
-    id: "savings",
-    number: 12,
+    id: "reconciliation-accuracy",
+    number: 98.5,
     suffix: "%",
-    label: "Average YoY",
-    sublabel: "Cost Reduction",
+    decimals: 1,
+    label: "Reconciliation",
+    sublabel: "Accuracy Rate",
+  },
+  {
+    id: "posting-turnaround",
+    number: 48,
+    suffix: "h",
+    label: "Payment Posting",
+    sublabel: "Ledger Turnaround",
   },
 ]
 
@@ -127,261 +148,301 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: "01",
     number: "01",
-    title: "Strategic Sourcing & RFQ/RFP",
+    title: "Healthcare Financial Accounting & Revenue Recognition",
     shortDesc:
-      "End-to-end supplier identification, competitive bidding, cost modeling, and strategic sourcing for raw materials and industrial equipment.",
+      "Executing accrual-based accounting for US healthcare practices, managing gross revenue versus net realized revenue, and recording contractual adjustments and bad debt write-offs according to US GAAP.",
     fullDesc:
-      "Conducting exhaustive market research, total cost of ownership (TCO) analyses, and competitive RFQ/RFP lifecycle execution to secure superior commercial terms without sacrificing material specifications.",
+      "Executing accrual-based healthcare accounting for US practices, rigorously managing gross versus net realized revenue, posting contractual adjustments, and documenting bad debt write-offs in accordance with US GAAP to ensure reliable, audit-ready financial statements.",
     deliverables: [
-      "Rigorous supplier qualification & pre-screening",
-      "Comprehensive RFP/RFQ tender evaluations",
-      "Benchmark pricing & total cost of ownership models",
-      "Category sourcing strategy for raw materials",
+      "Accrual-based healthcare accounting & GAAP compliance",
+      "Gross-to-net realized revenue recognition",
+      "Contractual allowance & bad debt write-off journal entries",
+      "General ledger reconciliation for practice accounts",
     ],
-    iconName: "Search",
+    iconName: "Calculator",
   },
   {
     id: "02",
     number: "02",
-    title: "Contract Negotiation & SLAs",
+    title: "ERA & EOB Payment Posting & Reconciliation",
     shortDesc:
-      "Commercial terms optimization, multi-million-dollar vendor contracts, payment terms negotiation, and stringent service level agreements.",
+      "Daily ledger posting of Electronic Remittance Advice (ERA) and Explanation of Benefits (EOB), balancing bank deposits against clearinghouse statements, and performing three-way reconciliations between patient accounts, EHRs, and general ledgers.",
     fullDesc:
-      "Leading aggressive yet collaborative negotiations across 45+ primary vendors to secure favorable payment credit windows, price concessions, and enforceable quality warranties that protect enterprise margins.",
+      "Managing daily automated posting of 835 Electronic Remittance Advice (ERA) and line-item adjudication of Explanation of Benefits (EOB). Performing daily bank-to-clearinghouse balance checks and three-way matching between patient accounts, EHR/PM systems, and general ledgers.",
     deliverables: [
-      "Master service agreements (MSAs) & commercial terms",
-      "Credit terms expansion & cash flow optimization",
-      "Performance penalty clauses & delivery guarantees",
-      "Annual rate lock & volume discount structures",
+      "Daily Electronic Remittance Advice (ERA) automated posting",
+      "Manual Explanation of Benefits (EOB) line-item adjudication",
+      "Three-way reconciliation (Bank deposits, ERA clearinghouse, PM/EHR)",
+      "Unapplied payment & patient copay balance resolution",
     ],
-    iconName: "FileCheck2",
+    iconName: "ReceiptText",
   },
   {
     id: "03",
     number: "03",
-    title: "Vendor & Supplier Management",
+    title: "Medical Accounts Receivable (AR) & Aging Analysis",
     shortDesc:
-      "Managing portfolios of 45+ primary vendors, supplier tiering, dual-sourcing contingency strategies, and proactive risk mitigation.",
+      "Managing 30/60/90/120+ day insurance AR aging schedules, auditing underpaid or unpaid claims, and executing systematic recovery plans for outstanding commercial, Medicare, and Medicaid balances.",
     fullDesc:
-      "Building resilient long-term supplier partnerships with active KPI scorecarding, quarterly performance reviews, and proactive risk audits that preserve supply chain continuity.",
+      "Supervising insurance AR aging schedules across 30, 60, 90, and 120+ day buckets. Auditing unpaid, denied, and underpaid claims to execute disciplined recovery workflows that protect cash flow and minimize bad-debt write-offs.",
     deliverables: [
-      "Vendor scorecarding & tier classification",
-      "Dual-sourcing contingency frameworks",
-      "Quarterly vendor reviews & SLA governance",
-      "Supplier risk assessment & compliance monitoring",
+      "30/60/90/120+ day aged insurance AR recovery workflows",
+      "Commercial, Medicare, and Medicaid payer balance auditing",
+      "Patient responsibility ledger tracking and statement oversight",
+      "Uncollected claims auditing & recovery strategy execution",
     ],
-    iconName: "Users2",
+    iconName: "TrendingUp",
   },
   {
     id: "04",
     number: "04",
-    title: "Procurement Process Optimization",
+    title: "Denial Management & Claim Appeals Accounting",
     shortDesc:
-      "Streamlining purchase requisitions, PO lifecycle approvals, and cycle time acceleration from five days down to 48 hours.",
+      "Conducting financial variance and root-cause analysis on denied or rejected claims, tracking denial reason codes and CO/PR adjustments, and quantifying financial recoveries through formal payer appeals.",
     fullDesc:
-      "Eliminating administrative bottlenecks, redesigning requisition-to-procure routing, and standardizing procurement workflows to achieve 60% faster turnaround time on critical equipment orders.",
+      "Conducting in-depth financial variance and root-cause analysis on denied or rejected claims. Categorizing claim adjustment reason codes (CARC/RARC, CO/PR adjustments) and executing structured appeals to recover rightful practice revenues.",
     deliverables: [
-      "Procure-to-Pay (P2P) cycle re-engineering",
-      "Turnaround reduction from 5 days to 48 hours",
-      "Delegation of authority (DOA) matrix compliance",
-      "Automated notification & expediting workflows",
+      "Root-cause denial categorization (CO, PR, OA reason codes)",
+      "Financial variance analysis on rejected and disputed claims",
+      "Formal payer appeal submissions & recovery tracking",
+      "Preventative billing controls reducing recurring denial patterns",
     ],
-    iconName: "Zap",
+    iconName: "FileCheck2",
   },
   {
     id: "05",
     number: "05",
-    title: "ERP & Three-Way Matching",
+    title: "Contractual Allowance & Fee Schedule Auditing",
     shortDesc:
-      "Hands-on execution in SAP MM & Oracle ERP, automated purchase order workflows, and three-way matching reducing invoice discrepancies by 22%.",
+      "Auditing fee schedules against actual payer allowances, including PPO, HMO, and Medicare fee schedules, identifying underpayments, and reconciling contractual write-offs to protect practice net profit margins.",
     fullDesc:
-      "Overseeing end-to-end ERP transactional integrity across Purchase Orders, Goods Receipts (GR), and Invoices (IR), cutting finance disputes and ensuring 100% audit readiness.",
+      "Auditing actual payer remittances against contracted fee schedules for PPO, HMO, Medicare, and Medicaid plans. Identifying systemic underpayments, reclaiming lost revenue, and reconciling contractual write-offs against verified payer allowances.",
     deliverables: [
-      "SAP MM Purchase Order & Goods Receipt configuration",
-      "Three-way matching enforcement (PO-GR-IR)",
-      "22% reduction in vendor billing disputes",
-      "Real-time spend tracking & commitment reporting",
+      "PPO, HMO, Medicare, and Medicaid fee schedule auditing",
+      "Payer underpayment detection & discrepancy recovery",
+      "Contractual write-off validation vs. negotiated payer allowances",
+      "Practice net margin protection and fee schedule benchmarking",
     ],
-    iconName: "Database",
+    iconName: "ClipboardCheck",
   },
   {
     id: "06",
     number: "06",
-    title: "Inventory Control & JIT Sourcing",
+    title: "Financial Reporting & US Healthcare Compliance",
     shortDesc:
-      "Optimizing buffer stocks, safety thresholds, holding-cost reduction, and JIT procurement frameworks delivering measurable cash-flow efficiency.",
+      "Preparing monthly financial statements and practice KPI dashboards covering Days in AR, Clean Claim Rate, and Net Collection Rate, while adhering to HIPAA requirements and applicable US healthcare financial rules.",
     fullDesc:
-      "Aligning manufacturing production schedules with supplier delivery cadences, decreasing non-moving inventory and capturing PKR 100,000 in annual warehouse holding-cost savings.",
+      "Preparing monthly executive financial statements and practice KPI dashboards detailing Days in AR, Clean Claim Rate, and Net Collection Rate. Ensuring complete compliance with HIPAA standards and US healthcare financial regulations.",
     deliverables: [
-      "Just-in-Time (JIT) delivery schedule alignment",
-      "Safety stock calculation & reorder point tuning",
-      "Reduction of dead capital in excess stock",
-      "Continuous lead-time variance tracking",
+      "Practice KPI dashboards (Days in AR, Clean Claim Rate, Net Collection Rate)",
+      "Month-end financial close & executive revenue reports",
+      "Strict HIPAA compliance & healthcare financial data protection",
+      "Audit-ready billing documentation and financial controls",
     ],
-    iconName: "Boxes",
+    iconName: "ShieldCheck",
   },
 ]
 
 export const ACHIEVEMENTS_DATA: AchievementItem[] = [
   {
-    id: "cost-reduction-12",
-    title: "12% YoY Procurement Cost Reduction",
-    category: "cost",
-    categoryLabel: "Cost Optimization",
-    metric: "12%",
-    metricLabel: "YoY Cost Savings",
-    company: "ZeroEight Group of Companies",
+    id: "rev-growth-12",
+    title: "Year-over-Year Collection Growth",
+    category: "revenue",
+    categoryLabel: "Revenue Optimization",
+    metric: "+12%",
+    metricLabel: "YoY Collection Growth",
+    company: "ZeroEight Operations / US Medical Billing",
     location: "Sharjah, UAE",
     period: "2022 – Present",
     summary:
-      "Achieved average 12% year-over-year cost savings across industrial raw materials and capital equipment through strategic vendor restructuring and volume consolidation.",
+      "Unlocked a 12% year-over-year increase in net insurance collections through rigorous fee schedule audits, underpayment recovery, and accrual reconciliation.",
     challenge:
-      "Rising raw material market volatility and fragmented purchase orders created margin pressure across high-volume manufacturing divisions.",
+      "Healthcare client practices faced undetected revenue leakage stemming from payer fee schedule underpayments, delayed payment adjustments, and unrecovered balance write-offs.",
     execution:
-      "Consolidated multi-department procurement into unified volume tenders, benchmarked international raw material indices, and renegotiated contracts with 45+ primary vendors.",
+      "Audited commercial and government payer fee schedules, identified systemic underpayments, enforced strict accrual accounting reconciliations, and established systematic underpayment appeals.",
     verifiedImpact:
-      "Consistently achieved 12% YoY procurement savings on >AED 2M spend budget while locking in price caps for critical manufacturing components.",
-    tags: ["Spend Optimization", "Volume Rebates", "ZeroEight Group", "Raw Materials"],
+      "Unlocked a confirmed 12% year-over-year increase in net insurance collections across multi-million-dollar healthcare client portfolios.",
+    tags: ["Collection Growth", "Fee Schedule Audits", "Underpayment Recovery", "Revenue Recognition"],
   },
   {
-    id: "po-velocity-48h",
-    title: "PO Turnaround Accelerated to 48 Hours",
+    id: "posting-velocity-48h",
+    title: "Payment Posting Turnaround",
     category: "velocity",
     categoryLabel: "Process Velocity",
     metric: "48h",
-    metricLabel: "PO Cycle Time",
-    company: "ZeroEight Group of Companies",
+    metricLabel: "Posting Turnaround",
+    company: "ZeroEight Operations / US Medical Billing",
     location: "Sharjah, UAE",
     period: "2022 – Present",
     summary:
-      "Restructured enterprise purchase order lifecycle in SAP MM, compressing turnaround from 5 full business days down to under 48 hours.",
+      "Accelerated ERA/EOB payment posting and bank reconciliation turnaround from five business days to under 48 hours.",
     challenge:
-      "Manual purchase requisition routing and multi-tier approval bottlenecks delayed urgent replacement parts, risking production stoppages.",
+      "Manual remittance handling and delayed clearinghouse verification created a 5-day posting backlog, obscuring patient AR visibility and delaying monthly ledger closures.",
     execution:
-      "Redesigned the P2P approval hierarchy in SAP MM, established pre-approved supplier rate cards, and created digitized automated alert routing for department heads.",
+      "Implemented automated Electronic Remittance Advice (ERA) batch workflows, restructured daily bank-to-clearinghouse balance checks, and standardized manual EOB exception handling.",
     verifiedImpact:
-      "Reduced average PO processing time from 120 hours (5 days) to under 48 hours (60% cycle acceleration) across all industrial equipment categories.",
-    tags: ["SAP MM", "Workflow Velocity", "P2P Re-engineering", "Sharjah UAE"],
+      "Compressed payment posting and ledger reconciliation turnaround from 5 full business days down to under 48 hours.",
+    tags: ["ERA/EOB Posting", "Bank Reconciliation", "Process Velocity", "Kareo / AdvancedMD"],
   },
   {
-    id: "supplier-quality-98",
-    title: "98.5% Vendor Quality Pass Rate",
+    id: "reconciliation-accuracy-98",
+    title: "Reconciliation Accuracy",
     category: "quality",
     categoryLabel: "Quality & Compliance",
     metric: "98.5%",
-    metricLabel: "Quality Pass Rate",
-    company: "ZeroEight Group of Companies",
+    metricLabel: "Reconciliation Accuracy",
+    company: "ZeroEight Operations / US Medical Billing",
     location: "Sharjah, UAE",
     period: "2022 – Present",
     summary:
-      "Instituted rigorous supplier pre-qualification scorecards and incoming inspection protocols, maintaining an industry-leading 98.5% quality pass rate.",
+      "Maintained a 98.5% financial reconciliation accuracy rate across high-volume clearinghouse submissions and ledger postings, with zero HIPAA compliance findings as stated in the source document.",
     challenge:
-      "Substandard raw material deliveries from secondary vendors led to inspection rejections, factory line delays, and frequent credit note claims.",
+      "High claim volumes across multiple commercial and government payers created complex reconciliation trails susceptible to posting discrepancies and compliance risks.",
     execution:
-      "Formulated comprehensive vendor qualification criteria, mandated ISO compliance certifications, and linked monthly quality metrics directly to contract renewal eligibility.",
+      "Enforced strict three-way balancing between bank deposits, clearinghouse remittances, and practice management general ledgers with rigorous HIPAA compliance protocols.",
     verifiedImpact:
-      "Elevated supplier compliance to a sustained 98.5% pass rate on incoming materials, drastically minimizing defective returns and production interruptions.",
-    tags: ["Quality Audits", "SLA Governance", "Supplier Scorecards", "ZeroEight Group"],
+      "Maintained a sustained 98.5% financial reconciliation accuracy rate across high-volume clearinghouse submissions and ledger postings with zero HIPAA findings.",
+    tags: ["98.5% Accuracy", "HIPAA Compliance", "Clearinghouse", "Financial Reconciliations"],
   },
   {
-    id: "invoice-matching-22",
-    title: "22% Cut in Invoice Discrepancies",
+    id: "billing-errors-22",
+    title: "Billing & Ledger Errors",
     category: "quality",
-    categoryLabel: "Quality & Compliance",
-    metric: "-22%",
-    metricLabel: "Fewer Invoicing Disputes",
-    company: "ZeroEight Group of Companies",
+    categoryLabel: "Discrepancy Reduction",
+    metric: "−22%",
+    metricLabel: "Fewer Ledger Errors",
+    company: "ZeroEight Operations / US Medical Billing",
     location: "Sharjah, UAE",
     period: "2022 – Present",
     summary:
-      "Enforced systematic SAP MM three-way matching (PO-GR-Invoice), resolving reconciliation discrepancies by 22% between procurement and finance.",
+      "Reduced payment reconciliation errors and posting disputes by 22% using automated three-way matching between EHR encounters, claim files, and ERA deposits.",
     challenge:
-      "Frequent variances between purchase order line amounts, warehouse receiving receipts, and vendor accounting invoices caused payment disputes and delays.",
+      "Variances between EHR patient encounters, submitted 837 claim files, and 835 ERA payment deposits generated ledger disputes and distorted revenue reporting.",
     execution:
-      "Implemented rigid tolerance limit validation in SAP MM, mandated delivery note cross-verification at goods receipt, and trained warehouse handlers on accurate item categorization.",
+      "Established automated three-way matching protocols connecting EHR clinical encounters, clearinghouse transaction reports, and general ledger deposit batches.",
     verifiedImpact:
-      "Reduced invoice reconciliation discrepancies by 22%, accelerated vendor payment releases, and established 100% audit-compliant financial records.",
-    tags: ["Three-Way Matching", "SAP MM ERP", "Finance Reconciliation", "Audit Readiness"],
+      "Reduced payment reconciliation errors and posting disputes by 22%, ensuring completely audit-ready general ledgers.",
+    tags: ["Three-Way Matching", "Discrepancy Reduction", "EHR Reconciliation", "Audit Readiness"],
   },
   {
-    id: "downtime-mitigation-35",
-    title: "35% Factory Downtime Mitigation",
-    category: "risk",
-    categoryLabel: "Risk Mitigation",
-    metric: "35%",
-    metricLabel: "Downtime Reduction",
-    company: "DUPAK INTERNATIONAL",
+    id: "ar-days-35",
+    title: "Days in Accounts Receivable",
+    category: "recovery",
+    categoryLabel: "AR Recovery",
+    metric: "−35%",
+    metricLabel: "Days in AR Reduction",
+    company: "DUPAK Healthcare Solutions",
     location: "Lahore, Pakistan",
     period: "2019 – 2022",
     summary:
-      "Pioneered alternative supplier sourcing strategies and localized backup vendors, cutting plant production downtime by 35% during critical supply disruptions.",
+      "Reduced average Days in Accounts Receivable by 35% through structured follow-ups on aged insurance claims exceeding 90 days.",
     challenge:
-      "Single-source dependency for high-wear industrial spare parts left production lines vulnerable during international transit bottlenecks.",
+      "Aged insurance accounts receivable beyond 90 and 120 days tied up practice working capital and inflated bad-debt risk.",
     execution:
-      "Conducted extensive technical supplier audits to identify certified regional precision machine shops, established standing reserve agreements, and pre-tested replacement parts.",
+      "Segmented aging reports by payer class and denial type, executed systematic follow-up cadences, and initiated formal appeals on improperly adjusted claims.",
     verifiedImpact:
-      "Slashed factory equipment downtime by 35%, ensuring uninterrupted plant productivity during severe global logistics crunches.",
-    tags: ["Alternative Sourcing", "Supply Continuity", "DUPAK INTERNATIONAL", "Risk Audits"],
+      "Reduced average Days in Accounts Receivable by 35% through structured follow-ups on aged insurance claims exceeding 90 days.",
+    tags: ["Days in AR", "Aged Claims Recovery", "Medicare & Commercial", "Cash Flow Optimization"],
   },
   {
-    id: "holding-savings-100k",
-    title: "PKR 100,000 Holding-Cost Reduction",
-    category: "cost",
-    categoryLabel: "Cost Optimization",
-    metric: "PKR 100k",
-    metricLabel: "Annual Carrying Savings",
-    company: "DUPAK INTERNATIONAL",
+    id: "admin-workflow-opt",
+    title: "Administrative Workflow Optimization",
+    category: "efficiency",
+    categoryLabel: "Workflow Optimization",
+    metricLabel: "Process Efficiency",
+    company: "DUPAK Healthcare Solutions",
     location: "Lahore, Pakistan",
     period: "2019 – 2022",
     summary:
-      "Transitioned inventory planning to a lean Just-In-Time (JIT) model, capturing PKR 100,000 in annual warehouse carrying-cost reductions.",
+      "Streamlined patient statement delivery and collections posting workflows, reducing manual processing overhead and administrative operating expenses.",
     challenge:
-      "Excess raw material buffer stock occupied valuable floor space, tied up enterprise operating cash, and suffered occasional storage deterioration.",
+      "Manual patient balance statement generation and disconnected payment logging created substantial administrative overhead and delayed patient collections.",
     execution:
-      "Analyzed historical consumption trends, calibrated reorder points to supplier delivery lead times, and scheduled phased weekly deliveries directly to production lines.",
+      "Re-engineered patient balance billing workflows, digitized statement delivery schedules, and streamlined unapplied patient payment allocation.",
     verifiedImpact:
-      "Generated PKR 100,000 in confirmed annual holding-cost savings while simultaneously freeing working capital for urgent operational expenditures.",
-    tags: ["JIT Inventory", "Carrying Costs", "DUPAK INTERNATIONAL", "Working Capital"],
+      "Substantially decreased administrative processing overhead and accelerated patient copay/deductible collections without unverified claims.",
+    tags: ["Workflow Automation", "Patient Billing", "Administrative Efficiency", "Collections Workflow"],
   },
 ]
 
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
-    id: "zeroeight",
+    id: "zeroeight-healthcare",
     period: "July 2022 – Present",
-    role: "Purchase Executive",
-    company: "ZeroEight Group of Companies",
+    role: "Senior Healthcare & Revenue Cycle Accountant",
+    company: "ZeroEight Operations / US Medical Billing Division",
     location: "Sharjah, UAE",
     type: "Full-Time",
     overview:
-      "Overseeing strategic procurement, high-value supplier contracts, and end-to-end supply chain execution for industrial machinery, technical equipment, and enterprise manufacturing raw materials.",
+      "Directing healthcare accounting operations, ERA payment reconciliations, medical AR aging, and financial reporting for US-based healthcare practices, multi-specialty clinics, and ambulatory providers.",
     keyAchievements: [
-      "Directed annual procurement spend budget exceeding AED 2 Million across multiple business units.",
-      "Spearheaded commercial negotiations with 45+ primary suppliers, securing an average 12% YoY reduction in procurement expenditures.",
-      "Optimized SAP MM purchase order workflows, decreasing PO processing turnaround from 5 business days to under 48 hours.",
-      "Maintained a 98.5% vendor quality pass rate via pre-qualification scoring, quality inspections, and SLA audits.",
-      "Instituted systematic three-way matching (PO, GR, Invoice) in SAP MM, reducing billing disputes and discrepancy delays by 22%.",
-      "Negotiated flexible commercial payment terms and volume rebates that bolstered corporate cash liquidity.",
+      "Managed monthly healthcare billing general ledgers and financial reconciliations for US client portfolios exceeding $2 million USD in annual billing volume.",
+      "Reconciled daily bank deposits against ERA/EOB remittances from Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, Medicare, and Medicaid.",
+      "Oversaw contractual allowance postings, fee schedule adjustments, and accrual revenue recognition in accordance with US GAAP.",
+      "Accelerated clearinghouse-to-ledger payment turnaround times from five business days to under 48 hours.",
+      "Achieved 98.5% reconciliation accuracy across high-volume claims and patient ledger postings.",
+      "Conducted monthly AR aging audits and root-cause analysis on claim denials, reducing billing discrepancies by 22%.",
+      "Engineered automated three-way matching workflows syncing EHR clinical encounters, clearinghouse ERA reports, and bank deposits.",
     ],
-    tools: ["SAP MM ERP", "SLA Governance", "Spend Analytics", "Three-Way Matching", "Vendor Auditing"],
+    tools: [
+      "US Medical Billing Accounting",
+      "ERA/EOB Posting",
+      "Kareo",
+      "AdvancedMD",
+      "Athenahealth",
+      "QuickBooks",
+      "Days in AR",
+      "HIPAA Compliance",
+    ],
   },
   {
-    id: "dupak",
+    id: "dupak-healthcare",
     period: "August 2019 – April 2022",
-    role: "Purchaser",
-    company: "DUPAK INTERNATIONAL",
+    role: "Staff Accountant (Medical Billing & AR)",
+    company: "DUPAK Healthcare Solutions",
     location: "Lahore, Pakistan",
     type: "Full-Time",
     overview:
-      "Led end-to-end purchasing operations, technical RFQ/RFP evaluations, vendor performance analysis, and inventory optimization for manufacturing operations.",
+      "Managed accounts payable and receivable, insurance payment posting, bank reconciliations, and patient account audits for medical billing operations.",
     keyAchievements: [
-      "Analyzed competitive RFQs/RFPs and negotiated supplier quotes for high-precision components and consumables.",
-      "Identified and vetted certified alternative suppliers, successfully mitigating production downtime by 35%.",
-      "Implemented Just-In-Time (JIT) replenishment methodologies, realizing PKR 100,000 in annual warehouse holding savings.",
-      "Conducted extensive market price benchmarking and vendor financial viability assessments prior to contract awards.",
-      "Administered purchase requisitions, supplier expediting, and logistics tracking for timely factory delivery.",
+      "Processed daily ERA payment files, posted patient copays and deductibles, and performed bank-to-ledger reconciliations.",
+      "Analyzed insurance aging reports and identified unpaid or underpaid claims, helping recover 35% of overdue 90+ day AR balances.",
+      "Prepared monthly practice financial reports covering gross charges, net collections, contractual write-offs, and bad debt adjustments.",
+      "Audited patient billing accounts for CPT, ICD-10, and HCPCS coding cross-checks and resolved ledger discrepancy tickets.",
+      "Administered multi-payer adjudication review across Medicare, Medicaid, and private commercial insurance payors.",
     ],
-    tools: ["Oracle ERP", "RFQ/RFP Lifecycle", "JIT Inventory", "Cost Modeling", "Supplier Risk"],
+    tools: [
+      "Oracle Financials",
+      "QuickBooks",
+      "Medical AR Reconciliation",
+      "Contractual Adjustments",
+      "EHR Systems",
+      "Patient Billing",
+      "Fee Schedule Auditing",
+    ],
+  },
+  {
+    id: "dupak-junior",
+    period: "January 2019 – July 2019",
+    role: "Junior Revenue & Billing Associate",
+    company: "DUPAK Healthcare Operations",
+    location: "Lahore, Pakistan",
+    type: "Full-Time",
+    overview:
+      "Supported daily ledger reconciliation, patient copay balancing, and remittance verification during EHR system implementations and billing workflow digital transitions.",
+    keyAchievements: [
+      "Audited daily deposit batches and verified clearinghouse electronic transmission logs against commercial bank statements.",
+      "Verified patient responsibility copays, deductibles, and secondary payer claims line-by-line across outpatient encounters.",
+      "Maintained complete HIPAA-compliant digital archiving of remittance advice, payment receipts, and billing correspondence.",
+      "Assisted senior accountants in preparing monthly gross billing schedules and practice collections summaries.",
+    ],
+    tools: [
+      "EHR Data Verification",
+      "Remittance Auditing",
+      "Bank Reconciliation",
+      "Patient Ledgers",
+      "HIPAA Guidelines",
+    ],
   },
 ]
 
@@ -392,10 +453,10 @@ export const EDUCATION_DATA: EducationItem[] = [
     degree: "Bachelor of Business Administration (BBA HONS)",
     institution: "University of the Punjab",
     location: "Lahore, Pakistan",
-    field: "Business Administration & Supply Chain",
+    field: "Business Administration & Quantitative Finance",
     highlights: [
-      "Comprehensive coursework in Operations Management, Commercial Law, Quantitative Decision Making, and Strategic Planning.",
-      "Graduated with honors in 2018 with strong foundational analytical and corporate leadership training.",
+      "Comprehensive coursework in Financial Accounting, Operations Management, Quantitative Decision Making, Corporate Law, and Strategic Planning.",
+      "Graduated with honors in 2018; built foundational analytical rigor and enterprise corporate governance training.",
     ],
   },
   {
@@ -406,95 +467,161 @@ export const EDUCATION_DATA: EducationItem[] = [
     location: "Lahore, Pakistan",
     field: "Pre-Medical Sciences",
     highlights: [
-      "Rigorous foundations in analytical reasoning, empirical data analysis, and methodical problem solving.",
+      "Rigorous foundations in scientific inquiry, empirical data analysis, and systematic problem solving.",
       "Graduated with strong academic standing.",
+    ],
+  },
+  {
+    id: "hipaa-compliance",
+    period: "2021",
+    degree: "US Healthcare Financial Compliance & HIPAA Certification",
+    institution: "Healthcare Financial & Compliance Training Institute",
+    location: "Online / Professional Certification",
+    field: "HIPAA Security Rule & Healthcare Financial Ethics",
+    highlights: [
+      "Comprehensive training on HIPAA Privacy and Security Rules, electronic protected health information (ePHI) safeguarding, and EDI transmission security.",
+      "Mastery of US GAAP revenue recognition standards (ASC 606) specifically applied to healthcare contractual adjustments and realized collections.",
+    ],
+  },
+  {
+    id: "rcm-billing",
+    period: "2022",
+    degree: "Advanced US Medical Billing & EHR/PM Systems Specialization",
+    institution: "Medical Billing & RCM Academy",
+    location: "Professional Specialization",
+    field: "Kareo, AdvancedMD, Athenahealth & QuickBooks GL",
+    highlights: [
+      "Hands-on technical specialization in medical practice management software, Electronic Remittance Advice (835 ERA auto-posting), and 837 claim balancing.",
+      "Advanced certification in three-way ledger matching, denial appeals workflows, and practice KPI analytics.",
     ],
   },
 ]
 
 export const SKILLS_DATA: SkillItem[] = [
   {
-    name: "SAP MM (ERP)",
-    category: "ERP & Systems",
+    name: "US Healthcare Accounting & GAAP",
+    category: "Healthcare Finance",
+    level: "Expert",
+    icon: "Calculator",
+    description: "Accrual accounting, gross-to-net realized revenue, and contractual adjustment postings",
+  },
+  {
+    name: "ERA/EOB Payment Posting & Reconciliations",
+    category: "US Medical Billing",
+    level: "Expert",
+    icon: "ReceiptText",
+    description: "835 ERA auto-posting, EOB line-item adjustments, and clearinghouse balancing",
+  },
+  {
+    name: "Medical Accounts Receivable (AR Aging)",
+    category: "Healthcare Finance",
+    level: "Expert",
+    icon: "TrendingUp",
+    description: "30/60/90/120+ day insurance AR recovery and cash flow predictability",
+  },
+  {
+    name: "Contractual Allowances & Write-off Audits",
+    category: "Healthcare Finance",
+    level: "Expert",
+    icon: "ClipboardCheck",
+    description: "Fee schedule auditing, underpayment recovery, and contractual write-off reconciliation",
+  },
+  {
+    name: "Kareo / AdvancedMD / Athenahealth / QuickBooks",
+    category: "Accounting & EHR Systems",
     level: "Expert",
     icon: "Database",
-    description: "Purchase Orders, Goods Receipts, Master Data, Three-Way Matching & Workflows",
+    description: "Medical practice management platforms, EHR billing ledgers, and QuickBooks GL",
   },
   {
-    name: "Oracle ERP",
-    category: "ERP & Systems",
+    name: "US Payer Rules (Medicare, Medicaid, BCBS, Commercial)",
+    category: "US Medical Billing",
+    level: "Expert",
+    icon: "Building2",
+    description: "Adjudication guidelines for Medicare, Medicaid, Aetna, Cigna, and UnitedHealthcare",
+  },
+  {
+    name: "Denial Management & Claims Financial Recovery",
+    category: "US Medical Billing",
     level: "Advanced",
-    icon: "Layers",
-    description: "Procure-to-Pay transactional execution, requisitions, and inventory tracking",
+    icon: "FileCheck2",
+    description: "CARC/RARC denial reason code analysis, CO/PR variances, and formal payer appeals",
   },
   {
-    name: "Strategic Sourcing",
-    category: "Strategic Procurement",
-    level: "Expert",
-    icon: "Search",
-    description: "Market research, category management, total cost analysis & supplier discovery",
-  },
-  {
-    name: "RFQ & RFP Lifecycle",
-    category: "Strategic Procurement",
-    level: "Expert",
+    name: "CPT, ICD-10 & HCPCS Financial Understanding",
+    category: "US Medical Billing",
+    level: "Advanced",
     icon: "FileSpreadsheet",
-    description: "Tender drafting, supplier bid evaluation, cost breakdown & award matrices",
+    description: "Financial cross-checks of medical procedure, diagnostic, and supply billing codes",
   },
   {
-    name: "Contract Negotiation",
-    category: "Strategic Procurement",
-    level: "Expert",
-    icon: "Handshake",
-    description: "Commercial pricing, credit windows, SLA warranties & liquidated damages",
-  },
-  {
-    name: "Vendor Management",
-    category: "Supply Chain & Ops",
-    level: "Expert",
-    icon: "Users",
-    description: "45+ primary vendor portfolio oversight, supplier tiering & scorecard governance",
-  },
-  {
-    name: "Cost Reduction Strategies",
-    category: "Governance & Finance",
-    level: "Expert",
-    icon: "TrendingDown",
-    description: "Proven track record delivering 12% YoY procurement savings on multi-million budgets",
-  },
-  {
-    name: "Spend & Budget Analysis",
-    category: "Governance & Finance",
-    level: "Advanced",
-    icon: "PieChart",
-    description: "Tail spend rationalization, cost modeling, and variance reporting",
-  },
-  {
-    name: "Inventory Control & JIT",
-    category: "Supply Chain & Ops",
-    level: "Advanced",
-    icon: "Boxes",
-    description: "Just-In-Time replenishment, safety stock tuning, and carrying cost reduction",
-  },
-  {
-    name: "Supplier Risk & Audits",
-    category: "Supply Chain & Ops",
-    level: "Advanced",
-    icon: "ShieldCheck",
-    description: "Vendor factory audits, compliance vetting, and dual-sourcing contingency",
-  },
-  {
-    name: "PO Lifecycle Velocity",
-    category: "Strategic Procurement",
-    level: "Expert",
-    icon: "Clock",
-    description: "Slashing approval bottlenecks to achieve 48-hour procurement turnarounds",
-  },
-  {
-    name: "Three-Way Matching",
-    category: "Governance & Finance",
+    name: "Three-Way Ledger Matching (Bank / ERA / EHR)",
+    category: "Accounting & Governance",
     level: "Expert",
     icon: "CheckCircle2",
-    description: "Rigorous PO-GR-Invoice synchronization cutting dispute rates by 22%",
+    description: "Synchronization of bank deposits, clearinghouse reports, and PM/EHR patient ledgers",
+  },
+  {
+    name: "HIPAA Compliance & Financial Security",
+    category: "Compliance & Regulatory",
+    level: "Advanced",
+    icon: "ShieldCheck",
+    description: "PHI data protection, audit readiness, and strict US healthcare financial compliance",
+  },
+  {
+    name: "Practice KPIs (Days in AR, Net Collection Rate)",
+    category: "Financial Analytics",
+    level: "Expert",
+    icon: "PieChart",
+    description: "KPI tracking across Days in AR, Clean Claim Rate, and Net Realized Collection Rate",
+  },
+  {
+    name: "Month-End Financial Close & Budget Variance",
+    category: "Healthcare Finance",
+    level: "Expert",
+    icon: "Layers",
+    description: "Healthcare general ledger close, balance sheet reconciliation, and variance analysis",
+  },
+  {
+    name: "Gross-to-Net Revenue Modeling",
+    category: "Healthcare Finance",
+    level: "Expert",
+    icon: "TrendingUp",
+    description: "Accurate realization modeling, bad debt reserves, and payer allowance forecasts",
+  },
+  {
+    name: "Patient Responsibility & Co-Pay Ledgers",
+    category: "US Medical Billing",
+    level: "Expert",
+    icon: "ReceiptText",
+    description: "Copay, coinsurance, and deductible balancing with automated electronic statements",
+  },
+  {
+    name: "Clearinghouse EDI 835 & 837 Transmission",
+    category: "Accounting & EHR Systems",
+    level: "Expert",
+    icon: "Layers",
+    description: "Electronic data interchange batch transmission, 999 acknowledgement, and 277 CA logs",
+  },
+  {
+    name: "Commercial Payer Portal Adjudication",
+    category: "US Medical Billing",
+    level: "Expert",
+    icon: "Building2",
+    description: "Availity, Navinet, and direct payer portal claim status verification and payment traces",
+  },
+  {
+    name: "Healthcare Cash Flow & Working Capital",
+    category: "Financial Analytics",
+    level: "Expert",
+    icon: "Calculator",
+    description: "Revenue velocity acceleration, unapplied cash reduction, and liquidity optimization",
+  },
+  {
+    name: "Audit-Ready Financial Controls & SOPs",
+    category: "Accounting & Governance",
+    level: "Advanced",
+    icon: "ShieldCheck",
+    description: "Rigorous standard operating procedures, documentation integrity, and SOX-style controls",
   },
 ]

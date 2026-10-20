@@ -43,7 +43,7 @@ export async function POST(request: Request) {
             to: process.env.CONTACT_NOTIFICATION_EMAIL || "ramz12mustafa@gmail.com",
             subject: `New Portfolio Inquiry from ${firstName} ${lastName} (${service})`,
             html: `
-              <h2>New Procurement Consultation Inquiry</h2>
+              <h2>New Healthcare Accounting &amp; RCM Consultation Inquiry</h2>
               <p><strong>Name:</strong> ${firstName} ${lastName}</p>
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Phone:</strong> ${phone || "Not provided"}</p>

@@ -63,12 +63,26 @@ export function AchievementModal({ item, onClose }: AchievementModalProps) {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2a1454] tracking-tight">
               {item.title}
             </h3>
-            <div className="px-4 py-2 rounded-2xl bg-gradient-to-br from-[#8750f7] to-[#2a1454] text-white text-center shrink-0 shadow-md">
-              <div className="text-2xl font-black">{item.metric}</div>
-              <div className="text-[10px] uppercase font-bold tracking-wider opacity-90">
-                {item.metricLabel}
+            {item.metric ? (
+              <div className="px-4 py-2 rounded-2xl bg-gradient-to-br from-[#8750f7] to-[#2a1454] text-white text-center shrink-0 shadow-md">
+                <div className="text-2xl font-black">{item.metric}</div>
+                {item.metricLabel && (
+                  <div className="text-[10px] uppercase font-bold tracking-wider opacity-90">
+                    {item.metricLabel}
+                  </div>
+                )}
               </div>
-            </div>
+            ) : (
+              <div className="px-4 py-2 rounded-2xl bg-gradient-to-br from-[#8750f7] to-[#2a1454] text-white text-center shrink-0 shadow-md">
+                <div className="text-base font-bold flex items-center justify-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+                  <span>Optimized</span>
+                </div>
+                <div className="text-[10px] uppercase font-bold tracking-wider opacity-90">
+                  {item.metricLabel || "Process Impact"}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Narrative: Challenge, Execution, Verified Result */}
@@ -86,7 +100,7 @@ export function AchievementModal({ item, onClose }: AchievementModalProps) {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#2a1454] mb-1.5 flex items-center gap-1.5">
                 <TrendingUp className="w-3.5 h-3.5 text-[#8750f7]" />
-                Strategy & Execution
+                Strategy &amp; Execution
               </h4>
               <p className="text-[#5c6266]">
                 {item.execution}
@@ -96,7 +110,7 @@ export function AchievementModal({ item, onClose }: AchievementModalProps) {
             <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100">
               <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-1 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Verified Impact (CV Confirmed)
+                Verified Impact
               </h4>
               <p className="text-emerald-950 font-medium">
                 {item.verifiedImpact}
